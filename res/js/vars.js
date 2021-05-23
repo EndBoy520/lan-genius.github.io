@@ -1,8 +1,8 @@
 window.downloads = {
-    android: 'https://wwi.lanzous.com/ii3cDnelvva',
-    windows: 'https://wwe.lanzous.com/i4ZDUfwxs3g',
-    linux: 'https://wwe.lanzous.com/iom0Bfwxt9i',
-    mac: 'https://wwe.lanzous.com/iKnR4fwxs0d',
+    android: 'https://wwi.lanzoux.com/ii3cDnelvva',
+    windows: 'https://wwe.lanzoux.com/i4ZDUfwxs3g',
+    linux: 'https://wwe.lanzoux.com/iom0Bfwxt9i',
+    mac: 'https://wwe.lanzoux.com/iKnR4fwxs0d',
 }
 
 function changeLanguage(me) {
