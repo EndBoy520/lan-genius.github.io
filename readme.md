@@ -1,3 +1,2 @@
-# LAN Genius
-
-Transfering file on LAN easily
+# lan-genius.github.io
+Official site of LAN Genius App
