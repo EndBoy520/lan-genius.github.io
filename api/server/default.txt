@@ -1,2 +1,1 @@
-http://120.77.202.220
 https://api.lan-genius.com
