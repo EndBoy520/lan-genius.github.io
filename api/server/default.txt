@@ -1,2 +1,2 @@
 http://120.77.202.220
-https://langenius.top
+https://api.lan-genius.com
