@@ -1,1 +1,1 @@
-http://lan-genius.ap-east-1.elasticbeanstalk.com
+http://lan-genius.us-east-1.elasticbeanstalk.com
