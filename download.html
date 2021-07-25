@@ -5,62 +5,75 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>下载 - 局域网精灵</title>
-    <link rel="stylesheet" href="/res/css/lib.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css"
-        integrity="sha384-cLRrMq39HOZdvE0j6yBojO4+1PrHfB7a9l5qLcmRm/fiWXYY+CndJPmyu5FV/9Tw" crossorigin="anonymous" />
-    <script src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"
-        integrity="sha384-gCMZcshYKOGRX9r6wbDrvF+TcCCswSHFucUzUPwka+Gr+uHgjlYvkABr95TCOz3A"
-        crossorigin="anonymous"></script>
-    <script src="/res/js/vars.js"></script>
+    <title>Download - LAN Genius</title>
+
+    <link rel="stylesheet" href="/res/css/spectre.min.css">
+    <link rel="stylesheet" href="/res/css/app.css">
+    <script src="/res/js/app.js"></script>
+    <script src="/res/js/vue.min.js"></script>
 </head>
 
 <body>
-    <div class="column">
-        <ul class="mdui-card mdui-list" style="width: 100%;max-width: 400px;">
-            <li class="mdui-list-item mdui-ripple">
-                <img style="margin-right: 8px;" src="/res/image/android.png" alt="android" width="32" height="32">
-                <div class="mdui-list-item-content">Android</div>
-                <div class="mdui-toolbar-spacer"></div>
-                <a href="javascript:;" id="android">
-                    <i class="mdui-icon material-icons">file_download</i>
-                    下载
+    <div id="app" class="column">
+        <ul class="menu" style="max-width: 700px;width: 100%;">
+            <!-- menu header text -->
+            <li class="divider" v-bind:data-content="str['DOWNLOAD_']">
+            </li>
+            <!-- menu item standard -->
+            <li class="menu-item">
+                <a :href="urls.android">
+                    <div class="row">
+                        <img src="/res/image/android.png" alt="android" width="25" height="25" style="margin-right: 15px;">
+                        <span>Android</span>
+                    </div>
                 </a>
             </li>
-            <li class="mdui-list-item mdui-ripple">
-                <img style="margin-right: 8px;" src="/res/image/windows.png" alt="android" width="32" height="32">
-                <div class="mdui-list-item-content">Windows</div>
-                <div class="mdui-toolbar-spacer"></div>
-                <a href="javascript:;" id="windows">
-                    <i class="mdui-icon material-icons">file_download</i>
-                    下载
+            <li class="menu-item">
+                <a :href="urls.windows">
+                    <div class="row">
+                        <img src="/res/image/windows.png" alt="windows" width="25" height="25" style="margin-right: 15px;">
+                        <span>Windows</span>
+                    </div>
                 </a>
             </li>
-            <li class="mdui-list-item mdui-ripple">
-                <img style="margin-right: 8px;" src="/res/image/linux.png" alt="android" width="32" height="32">
-                <div class="mdui-list-item-content">Linux</div>
-                <div class="mdui-toolbar-spacer"></div>
-                <a href="javascript:;" id="linux">
-                    <i class="mdui-icon material-icons">file_download</i>
-                    下载
+            <li class="menu-item">
+                <a :href="urls.mac">
+                    <div class="row">
+                        <img src="/res/image/darwin.png" alt="mac" width="25" height="25" style="margin-right: 15px;">
+                        <span>Mac</span>
+                    </div>
                 </a>
             </li>
-            <li class="mdui-list-item mdui-ripple">
-                <img style="margin-right: 8px;" src="/res/image/darwin.png" alt="android" width="32" height="32">
-                <div class="mdui-list-item-content">Mac</div>
-                <div class="mdui-toolbar-spacer"></div>
-                <a href="javascript:;" id="mac">
-                    <i class="mdui-icon material-icons">file_download</i>
-                    下载
+            <li class="menu-item">
+                <a :href="urls.linux">
+                    <div class="row">
+                        <img src="/res/image/linux.png" alt="linux" width="25" height="25" style="margin-right: 15px;">
+                        <span>Linux</span>
+                    </div>
                 </a>
             </li>
+
         </ul>
     </div>
     <script>
-        document.getElementById('android').href = window.downloads.android;
-        document.getElementById('windows').href = window.downloads.windows;
-        document.getElementById('linux').href = window.downloads.linux;
-        document.getElementById('mac').href = window.downloads.mac;
+        app = new Vue({
+            el: '#app',
+            data: {
+                str: {},
+                urls: {
+                    android: 'https://wwi.lanzoux.com/ii3cDnelvva',
+                    windows: 'https://wwe.lanzoux.com/i4ZDUfwxs3g',
+                    linux: 'https://wwe.lanzoux.com/iom0Bfwxt9i',
+                    mac: 'https://wwe.lanzoux.com/iKnR4fwxs0d',
+                }
+            },
+            created: function () {
+                loadLanguage(function (obj) {
+                    app.str = obj;
+                    document.title = obj['DOWNLOAD_'] + ' - ' + obj['APP_NAME_']
+                })
+            }
+        })
     </script>
 </body>
 
