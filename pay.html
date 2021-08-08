@@ -19,6 +19,7 @@
                 {{str["PAY_NOW_"]}}
             </h1>
             <b style="color: red;">{{str["PLZ_REMARK_YOUR_USERNAME_WHEN_PAY_"]}}</b>
+            <h3>{{username}}</h3>
             <a href="https://qr.alipay.com/tsx02907mtbanqhpid1vq87"><img src="res/image/alipay.jpg" alt="alipay"></a>
             <span>微信支付无法退款，有问题请加售后Q群:691017244</span>
             <a href="wxp://f2f0p_qNyNEd6TdLm6DBIb9PWiHFsP7ZkmN8"><img src="res/image/wechat.jpg" alt="wechat"></a>
@@ -36,12 +37,15 @@
             data: {
                 str: {},
                 prices: [],
+                username:'asdkh'
             },
             created: function () {
                 loadLanguage(function (obj) {
                     app.str = obj;
                     document.title = obj['PAY_NOW_'] + ' - ' + obj['APP_NAME_'];
                 })
+                var params=parseQuery(location.href)
+                this.username=params['username']
             }
         })
     </script>
