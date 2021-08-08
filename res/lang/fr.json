@@ -14,5 +14,6 @@
     "PLZ_REMARK_YOUR_USERNAME_WHEN_PAY_": "Veuillez noter votre nom d'utilisateur lors du paiement.",
     "REGISTER_AN_ACCOUNT_BEFORE_YOU_PAY_": "Veuillez créer un compte avant d'acheter",
     "COPY_":"Copier",
-    "DOWNLOAD_CLIENT_":"Télécharger le client"
+    "DOWNLOAD_CLIENT_":"Télécharger le client",
+    "PREVIOUS_VERSION_DOWNLOAD_":"Téléchargement de la version historique"
 }

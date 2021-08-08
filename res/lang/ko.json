@@ -14,5 +14,6 @@
     "PLZ_REMARK_YOUR_USERNAME_WHEN_PAY_": "결제 시 사용자 이름을 기록해 두십시오.",
     "REGISTER_AN_ACCOUNT_BEFORE_YOU_PAY_": "구매하기 전에 계정을 등록하세요.",
     "COPY_":"복사",
-    "DOWNLOAD_CLIENT_":"클라이언트 다운로드"
+    "DOWNLOAD_CLIENT_":"클라이언트 다운로드",
+    "PREVIOUS_VERSION_DOWNLOAD_":"이전 버전 다운로드"
 }
