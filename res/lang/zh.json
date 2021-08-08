@@ -13,5 +13,6 @@
     "EMAIL_":"E-mail",
     "PLZ_REMARK_YOUR_USERNAME_WHEN_PAY_":"支付时一定记得备注上您的用户名",
     "REGISTER_AN_ACCOUNT_BEFORE_YOU_PAY_":"购买之前请先注册一个账号",
-    "COPY_":"复制"
+    "COPY_":"复制",
+    "DOWNLOAD_CLIENT_":"下载客户端"
 }

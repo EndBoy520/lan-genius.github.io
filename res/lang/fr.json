@@ -13,5 +13,6 @@
     "EMAIL_": "E-mail",
     "PLZ_REMARK_YOUR_USERNAME_WHEN_PAY_": "Veuillez noter votre nom d'utilisateur lors du paiement.",
     "REGISTER_AN_ACCOUNT_BEFORE_YOU_PAY_": "Veuillez créer un compte avant d'acheter",
-    "COPY_":"Copier"
+    "COPY_":"Copier",
+    "DOWNLOAD_CLIENT_":"Télécharger le client"
 }
