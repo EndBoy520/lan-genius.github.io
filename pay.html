@@ -10,6 +10,25 @@
     <link rel="stylesheet" href="/res/css/app.css">
     <script src="/res/js/app.js"></script>
     <script src="/res/js/vue.min.js"></script>
+    <script>
+        function copy(text) {
+            var input = document.createElement('input');
+            input.setAttribute('value', text);
+            document.body.appendChild(input);
+            input.select();
+            var result = document.execCommand('copy');
+            document.body.removeChild(input);
+            return result;
+        }
+        function doCopy(me) {
+            var textBefore = me.innerText;
+            copy(app.username)
+            me.innerText='✅'
+            setTimeout(() => {
+                me.innerText=textBefore
+            }, 1000);
+        }
+    </script>
 </head>
 
 <body>
@@ -19,7 +38,8 @@
                 {{str["PAY_NOW_"]}}
             </h1>
             <b style="color: red;">{{str["PLZ_REMARK_YOUR_USERNAME_WHEN_PAY_"]}}</b>
-            <h3>{{username}}</h3>
+            <h3>{{username}} <button v-if='username' class="btn btn-primary"
+                    onclick="doCopy(this)">{{str["COPY_"]}}</button></h3>
             <a href="https://qr.alipay.com/tsx02907mtbanqhpid1vq87"><img src="res/image/alipay.jpg" alt="alipay"></a>
             <span>微信支付无法退款，有问题请加售后Q群:691017244</span>
             <a href="wxp://f2f0p_qNyNEd6TdLm6DBIb9PWiHFsP7ZkmN8"><img src="res/image/wechat.jpg" alt="wechat"></a>
@@ -37,15 +57,15 @@
             data: {
                 str: {},
                 prices: [],
-                username:'asdkh'
+                username: 'asdkh'
             },
             created: function () {
                 loadLanguage(function (obj) {
                     app.str = obj;
                     document.title = obj['PAY_NOW_'] + ' - ' + obj['APP_NAME_'];
                 })
-                var params=parseQuery(location.href)
-                this.username=params['username']
+                var params = parseQuery(location.href)
+                this.username = params['username']
             }
         })
     </script>
