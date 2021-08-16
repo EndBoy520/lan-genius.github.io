@@ -1,1 +1,1 @@
-http://api.lan-genius.com
+https://api.lan-genius.com
