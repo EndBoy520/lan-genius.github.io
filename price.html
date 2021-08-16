@@ -54,7 +54,7 @@
                         app.prices = JSON.parse(xhr.responseText)
                     }
                 }
-                xhr.open('GET', 'http://api.lan-genius.com/api-v4/public/prices')
+                xhr.open('GET', 'https://api.lan-genius.com/api-v4/public/prices')
                 xhr.setRequestHeader('Language', navigator.language)
                 xhr.send()
             }
