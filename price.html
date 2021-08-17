@@ -22,12 +22,16 @@
                 <a href="/download.html" class="btn btn-primary">{{.GetStr "DOWNLOAD_CLIENT_"}}</a>
             </span>
             <div class="row">
-                <div v-for='price in prices' class="card">
+                {{$res := httpGetJson (print "/api-v4/public/prices?gl=" ( urlquery .GetLang) )}}{{if eq $res.StatusCode 200}}{{range $res.Data.prices}}
+                <div class="card">
                     <div class="card-header">
-                        <div style="color: red;" class="card-title h5">[[price.price]]</div>
-                        <div class="card-subtitle text-gray">[[price.title]]</div>
+                        <div style="color: red;" class="card-title h5">{{.price}}</div>
+                        <div class="card-subtitle text-gray">{{.title}}</div>
                     </div>
-                </div>
+                </div>{{end}}
+                {{else}}
+                <span>{{$res.Error}}</span>
+                {{end}}
             </div>
             <br>
             <span>{{.GetStr "PLZ_REMARK_YOUR_USERNAME_WHEN_PAY_"}}</span>
@@ -50,7 +54,7 @@
                         app.prices = JSON.parse(xhr.responseText)
                     }
                 }
-                xhr.open('GET', 'http://api.lan-genius.com/api-v4/public/prices')
+                xhr.open('GET', 'https://api.lan-genius.com/api-v4/public/prices')
                 xhr.setRequestHeader('Language', navigator.language)
                 xhr.send()
             }
