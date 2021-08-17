@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/res/css/spectre.min.css">
     <link rel="stylesheet" href="/res/css/app.css">
     <script src="/res/js/app.js"></script>
-    <script src="/res/js/vue.min.js"></script>
+   
 </head>
 
 <body>
@@ -35,30 +35,16 @@
             </div>
             <br>
             <span>{{.GetStr "PLZ_REMARK_YOUR_USERNAME_WHEN_PAY_"}}</span>
-            <a href="/pay.html" class="btn btn-primary">
+            <a id="paynow" href="/pay.html" class="btn btn-primary">
                 {{.GetStr "PAY_NOW_"}}
             </a>
         </div>
     </div>
     <script>
-        app = new Vue({
-            el: '#app',
-            data: {
-                prices: [],
-            },
-            delimiters:['[[',']]'],
-            created: function () {
-                var xhr = new XMLHttpRequest();
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4 && xhr.status == 200) {
-                        app.prices = JSON.parse(xhr.responseText)
-                    }
-                }
-                xhr.open('GET', 'https://api.lan-genius.com/api-v4/public/prices')
-                xhr.setRequestHeader('Language', navigator.language)
-                xhr.send()
-            }
-        })
+        var params=parseQuery(location.href)
+        if(params['username']){
+            document.getElementById('paynow').href='/pay.html?username='+encodeURIComponent(params['username'])
+        }
     </script>
 </body>
 
