@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Price - LAN Genius</title>
+    <title>{{.GetStr "PRICE_"}} - {{.GetStr "APP_NAME_"}}</title>
     <link rel="stylesheet" href="/res/css/spectre.min.css">
     <link rel="stylesheet" href="/res/css/app.css">
     <script src="/res/js/app.js"></script>
@@ -16,23 +16,23 @@
     <div id="app" class="column">
         <div class="waterfall">
             <b style="color: red;">
-                🎉{{str["SUBSCRIBE_FOR_NO_ADS_"]}}🎉
+                🎉{{.GetStr "SUBSCRIBE_FOR_NO_ADS_"}}🎉
             </b>
-            <span>{{str["REGISTER_AN_ACCOUNT_BEFORE_YOU_PAY_"]}}
-                <a href="/download.html" class="btn btn-primary">{{str["DOWNLOAD_CLIENT_"]}}</a>
+            <span>{{.GetStr "REGISTER_AN_ACCOUNT_BEFORE_YOU_PAY_"}}
+                <a href="/download.html" class="btn btn-primary">{{.GetStr "DOWNLOAD_CLIENT_"}}</a>
             </span>
             <div class="row">
                 <div v-for='price in prices' class="card">
                     <div class="card-header">
-                        <div style="color: red;" class="card-title h5">{{price.price}}</div>
-                        <div class="card-subtitle text-gray">{{price.title}}</div>
+                        <div style="color: red;" class="card-title h5">[[price.price]]</div>
+                        <div class="card-subtitle text-gray">[[price.title]]</div>
                     </div>
                 </div>
             </div>
             <br>
-            <span>{{str["PLZ_REMARK_YOUR_USERNAME_WHEN_PAY_"]}}</span>
+            <span>{{.GetStr "PLZ_REMARK_YOUR_USERNAME_WHEN_PAY_"}}</span>
             <a href="/pay.html" class="btn btn-primary">
-                {{str["PAY_NOW_"]}}
+                {{.GetStr "PAY_NOW_"}}
             </a>
         </div>
     </div>
@@ -40,14 +40,10 @@
         app = new Vue({
             el: '#app',
             data: {
-                str: {},
                 prices: [],
             },
+            delimiters:['[[',']]'],
             created: function () {
-                loadLanguage(function (obj) {
-                    app.str = obj;
-                    document.title = obj['PRICE_'] + ' - ' + obj['APP_NAME_'];
-                })
                 var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange = function () {
                     if (xhr.readyState == 4 && xhr.status == 200) {

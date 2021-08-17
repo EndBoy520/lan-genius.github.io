@@ -1,0 +1,10 @@
+{
+    "host":"localhost",
+    "port":8080,
+    "lang": {
+        "dir": "common/lang",
+        "default": "en",
+        "keyAsValue": true
+    },
+    "apiServer":"http://localhost:5000"
+}

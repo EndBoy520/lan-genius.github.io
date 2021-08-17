@@ -52,7 +52,7 @@
                     </div>
                 </a>
             </li>
-            <a style="float: right;" href="https://github.com/lan-genius/lan-genius.github.io/releases">{{str["PREVIOUS_VERSION_DOWNLOAD_"]}}</a>
+            <a style="float: right;" href="https://github.com/lan-genius/lan-genius.github.io/releases">{{.GetStr "PREVIOUS_VERSION_DOWNLOAD_"}}</a>
 
         </ul>
     </div>
@@ -67,12 +67,6 @@
                     linux: 'https://wwe.lanzoux.com/iom0Bfwxt9i',
                     mac: 'https://wwe.lanzoux.com/iKnR4fwxs0d',
                 }
-            },
-            created: function () {
-                loadLanguage(function (obj) {
-                    app.str = obj;
-                    document.title = obj['DOWNLOAD_'] + ' - ' + obj['APP_NAME_']
-                })
             }
         })
     </script>

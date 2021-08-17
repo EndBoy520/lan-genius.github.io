@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pay - LAN Genius</title>
+    <title>{{.GetStr "PAY_NOW_"}} - {{.GetStr "APP_NAME_"}}</title>
     <link rel="stylesheet" href="/res/css/spectre.min.css">
     <link rel="stylesheet" href="/res/css/app.css">
     <script src="/res/js/app.js"></script>
@@ -35,11 +35,11 @@
     <div id="app" class="column">
         <div class="waterfall">
             <h1>
-                {{str["PAY_NOW_"]}}
+                {{.GetStr "PAY_NOW_"}}
             </h1>
-            <b style="color: red;">{{str["PLZ_REMARK_YOUR_USERNAME_WHEN_PAY_"]}}</b>
-            <h3>{{username}} <button v-if='username' class="btn btn-primary"
-                    onclick="doCopy(this)">{{str["COPY_"]}}</button></h3>
+            <b style="color: red;">{{.GetStr "PLZ_REMARK_YOUR_USERNAME_WHEN_PAY_"}}</b>
+            <h3>[[username]] <button v-if='username' class="btn btn-primary"
+                    onclick="doCopy(this)">{{.GetStr "COPY_"}}</button></h3>
             <a href="https://qr.alipay.com/tsx02907mtbanqhpid1vq87"><img src="res/image/alipay.jpg" alt="alipay"></a>
             <span>微信支付无法退款，有问题请加售后Q群:691017244</span>
             <a href="wxp://f2f0p_qNyNEd6TdLm6DBIb9PWiHFsP7ZkmN8"><img src="res/image/wechat.jpg" alt="wechat"></a>
@@ -48,22 +48,18 @@
                 <img src="res/image/paypal.jpg" alt="paypal"></a>
             <span>充值将在一个工作日内完成</span>
             <span>售后QQ群:691017244</span>
-            <span>{{str["CONTACT_US_"]}}: langenius.tech@gmail.com</span>
+            <span>{{.GetStr "CONTACT_US_"}}: langenius.tech@gmail.com</span>
         </div>
     </div>
     <script>
         app = new Vue({
             el: '#app',
             data: {
-                str: {},
                 prices: [],
-                username: 'asdkh'
+                username: ''
             },
+            delimiters:['[[',']]'],
             created: function () {
-                loadLanguage(function (obj) {
-                    app.str = obj;
-                    document.title = obj['PAY_NOW_'] + ' - ' + obj['APP_NAME_'];
-                })
                 var params = parseQuery(location.href)
                 this.username = params['username']
             }
